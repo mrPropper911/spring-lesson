@@ -3,6 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="applianceDAO" class="by.vadim.hw1.dao.impl.ApplianceDAOImplCSV">
+    </bean>
+
+    <bean id="applianceService" class="by.vadim.hw1.service.impl.ApplianceServiceImpl">
+        <constructor-arg name="dao" ref="applianceDAO"/>
+    </bean>
+
+    
 
 
 

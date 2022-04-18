@@ -1,5 +1,7 @@
 package by.vadim.hw1.dao;
 
-public interface ApplianceDAO {
 
+public interface ApplianceDAO {
+    //getResourceAsStream ()
+    StringBuilder findQuestion();
 }
