@@ -37,7 +37,5 @@ public class ApplianceServiceImpl implements ApplianceService {
         }
     }
 
-
-
-
+// mvn package spring-boot:repackage (to create jar)
 }
