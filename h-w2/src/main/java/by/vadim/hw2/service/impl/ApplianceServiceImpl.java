@@ -28,11 +28,11 @@ public class ApplianceServiceImpl implements ApplianceService {
         return splitToArrayQuestion(stringBuilder);
     }
 
-    private ArrayList<Question> splitToArrayQuestion(StringBuilder strBuilderQuestion){
+    private ArrayList<Question> splitToArrayQuestion(StringBuilder strBuilderQuestion) {
         String strQuestion = strBuilderQuestion.toString();
         String[] arrayStrQuestion = strQuestion.split("\n");
 
-        for (String index : arrayStrQuestion){
+        for (String index : arrayStrQuestion) {
             String[] oneQuestion = index.split(",");
             Question question = new Question(Integer.parseInt(oneQuestion[0]),
                     oneQuestion[1],
@@ -43,7 +43,7 @@ public class ApplianceServiceImpl implements ApplianceService {
         return arrayQuestion;
     }
 
-    public void printQuestion(ArrayList<Question> arrayQuestion, int numberOfQuestion){
+    public void printQuestion(ArrayList<Question> arrayQuestion, int numberOfQuestion) {
         System.out.println(arrayQuestion.get(numberOfQuestion));
     }
 

@@ -19,7 +19,7 @@ public class Question {
 
     @Override
     public String toString() {
-        return "Question" +
+        return "\nQuestion" +
                 " : " + numberQuestion +
                 "\n" + currentQuestion + '\'' +
                 "\n" + answerQuestion + '\'';
