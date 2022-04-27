@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 @Component
 public class ApplianceDAOImplCSV implements ApplianceDAO {
+
     public StringBuilder findQuestion(String pathTest) {
         StringBuilder outLine = new StringBuilder();
 

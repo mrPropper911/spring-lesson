@@ -12,8 +12,7 @@ public class Student {
     //single tone
     private static final Student instance = new Student();
 
-    private Student() {
-    }
+    private Student() {}
 
     public static Student getInstance() {
         return instance;

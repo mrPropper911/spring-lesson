@@ -34,7 +34,7 @@ public class HistoryTest implements Test {
         int scoreRightAnswer = 0;
         Student student = Student.getInstance();
         student.setStudentInformation();
-        timerForStart(timeDelay);
+        //timerForStart(timeDelay);
         ArrayList<Question> questionArrayList = applianceService.getQuestion();
         for (int i = 0; i < questionArrayList.size(); i++) {
             applianceService.printQuestion(questionArrayList, i);
