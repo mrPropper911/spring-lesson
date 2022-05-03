@@ -2,17 +2,16 @@ package by.vadim.hw3.dao.impl;
 
 import by.vadim.hw3.configs.AppProps;
 import by.vadim.hw3.dao.ApplianceDAO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PreDestroy;
-import java.beans.ConstructorProperties;
 import java.util.Objects;
 import java.util.Scanner;
 
-@Component
+@Service
 public class ApplianceDAOImplCSV implements ApplianceDAO {
 
     private final MessageSource messageSource;

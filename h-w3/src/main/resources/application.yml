@@ -1,4 +1,8 @@
 application:
-  locale: ru_RU
+  locale: en
   achieveScore: 5
-  timeDelay: 2
+  timeDelay: 1
+
+spring:
+  main:
+    allow-circular-references: true
