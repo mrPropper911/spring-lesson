@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    schema: schema.sql
+    data: data-test.sql
+  main:
+    allow-circular-references: true

@@ -30,6 +30,7 @@ public class BookServiceImpl implements BookService {
         bookDao.insert(book.getId(), book.getTitle(), book.getPrice(),
                 book.getAuthor().getId(), book.getGenre().getId());
     }
+
     @Override
     public void addNewBook(long id, String title, double price, long author_id, long genre_id) {
         bookDao.insert(id, title, price, author_id, genre_id);
@@ -40,7 +41,7 @@ public class BookServiceImpl implements BookService {
         bookDao.deleteById(id);
     }
 
-    public void messageBook(Book book){
+    public void messageBook(Book book) {
         ioService.out(book.getId() + ") " + book.getTitle() + " " +
                 book.getPrice() + " " + book.getAuthor().getName() + " " + book.getGenre().getName());
     }

@@ -1,9 +1,7 @@
 package by.vadim.hw4.domain;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Data
 public class Genre {
     private final long id;

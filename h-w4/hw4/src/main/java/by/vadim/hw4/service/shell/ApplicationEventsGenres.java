@@ -1,6 +1,5 @@
 package by.vadim.hw4.service.shell;
 
-import by.vadim.hw4.domain.Author;
 import by.vadim.hw4.domain.Genre;
 import by.vadim.hw4.service.api.IOService;
 import by.vadim.hw4.service.genre.GenreService;

@@ -80,9 +80,3 @@ public class BookDaoJdbc implements BookDao {
         }
     }
 }
-
-
-//SELECT *
-//        FROM BOOKS
-//        INNER JOIN AUTHORS  ON  BOOKS.AUTHOR_ID = AUTHORS.ID
-//        INNER JOIN GENRES ON  BOOKS.GENRE_ID  =  GENRES.ID

@@ -17,26 +17,26 @@ public class ApplicationEventsBooks {
     private final IOService ioService;
 
     @ShellMethod(value = "Get all book", key = {"sab", "show all book"})
-    public void showBook(){
+    public void showBook() {
         List<Book> bookList = bookService.getAllBooks();
-        for (Book index: bookList){
+        for (Book index : bookList) {
             bookService.messageBook(index);
         }
     }
 
     @ShellMethod(value = "Search book by ID", key = {"sabID", "show found book"})
-    public void showFoundBook(@ShellOption(defaultValue = "1")long searchId){
+    public void showFoundBook(@ShellOption(defaultValue = "1") long searchId) {
         bookService.messageBook(bookService.searchBookByID(searchId));
     }
 
     @ShellMethod(value = "Delete book by ID", key = {"dabID", "delete found book"})
-    public void deleteFoundBook(long searchId){
+    public void deleteFoundBook(long searchId) {
         bookService.deleteBookById(searchId);
         ioService.out("Delete succeed!");
     }
 
     @ShellMethod(value = "Add book new book", key = {"aab", "update book"})
-    public void addNewBook(){
+    public void addNewBook() {
         ioService.out("Enter id:");
         final Long id = Long.parseLong(ioService.readString());
         ioService.out("Enter title:");

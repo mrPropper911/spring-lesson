@@ -17,19 +17,20 @@ public class ApplicationEventsAuthors {
     private final AuthorService authorService;
 
     @ShellMethod(value = "Login command", key = {"l", "login"})
-    public String sayHello(@ShellOption(defaultValue = "Vadim") String username){
+    public String sayHello(@ShellOption(defaultValue = "Vadim") String username) {
         return String.format("Hello: %s", username);
     }
 
     @ShellMethod(value = "Get all authors", key = {"saa", "show all authors"})
-    public void showAuthor(){
+    public void showAuthor() {
         List<Author> authorList = authorService.getAll();
-        for (Author index: authorList){
+        for (Author index : authorList) {
             ioService.out(index.getId() + " " + index.getName());
         }
     }
+
     @ShellMethod(value = "Show authors by  id", key = {"saaID", "show found authors"})
-    public void showAuthorById(@ShellOption(defaultValue = "1")long searchId){
+    public void showAuthorById(@ShellOption(defaultValue = "1") long searchId) {
         ioService.out(authorService.searchAuthorById(searchId).getId() + " " +
                 authorService.searchAuthorById(searchId).getName());
     }
