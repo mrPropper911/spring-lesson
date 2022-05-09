@@ -14,7 +14,6 @@ public class ApplicationEventsCommands {
 
     private final StudentLogination studentLogination;
     private final SimpleQuiz simpleQuiz;
-
     @ShellMethod(value = "Login command", key = {"l", "login"})
     public String login(@ShellOption(defaultValue = "AnyUser") String userName) throws Exception {
         Student student = Student.getInstance();
