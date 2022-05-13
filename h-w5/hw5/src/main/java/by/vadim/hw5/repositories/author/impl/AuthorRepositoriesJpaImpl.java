@@ -38,6 +38,13 @@ public class AuthorRepositoriesJpaImpl implements AuthorRepositories {
         return query.getResultList();
     }
 
+    @Transactional(readOnly = true)
+    @Override
+    public List<Author> findAll(){
+        TypedQuery<Author> query =
+                entityManager.createQuery("select s from Author s", Author.class);
+        return query.getResultList();
+    }
 
     @Transactional
     @Override

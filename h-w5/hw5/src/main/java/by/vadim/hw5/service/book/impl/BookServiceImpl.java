@@ -94,9 +94,26 @@ public class BookServiceImpl implements BookService {
         }
     }
 
+    @Override
+    public void updateTitleBookById(){
+        ioService.out("Enter id to update book");
+        long idDelete = Long.parseLong(ioService.readString());
+        ioService.out("Enter new title to update");
+        String searchTitle = ioService.readString();
+        bookRepositoryJpa.updateTitleById(idDelete, searchTitle);
+    }
+
+    @Override
+    public void deleteBookById() {
+        showAllBook();
+        ioService.out("Enter id to delete book");
+        long idDelete = Long.parseLong(ioService.readString());
+        bookRepositoryJpa.deleteById(idDelete);
+    }
+
     private String messageBook(Book book) {
         String bookOut = "";
-        bookOut = book.getId() + ") " + book.getTitle() + " " +
+        bookOut = book.getId() + " " + book.getTitle() + " " +
                 book.getPrice() + " " + book.getAuthor().getName() + " " + book.getGenre().getName() + "\n ";
 
         for (Comment index : book.getComments()) {

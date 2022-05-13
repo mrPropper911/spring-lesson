@@ -4,4 +4,6 @@ public interface BookService {
     void saveNewBook();
     void showAllBook();
     void findBookByName();
+    void updateTitleBookById();
+    void deleteBookById();
 }
