@@ -11,12 +11,12 @@ public class ApplicationEventsAuthor {
     private final AuthorService authorService;
 
     @ShellMethod(value = "Save new author in BD", key = {"sA", "save author"})
-    public void saveNewAuthor(){
+    public void saveNewAuthor() {
         authorService.saveNewAuthor();
     }
 
     @ShellMethod(value = "Show all authors from BD", key = {"shA", "show authors"})
-    public void showAllAuthor(){
+    public void showAllAuthor() {
         authorService.showAllAuthor();
     }
 }

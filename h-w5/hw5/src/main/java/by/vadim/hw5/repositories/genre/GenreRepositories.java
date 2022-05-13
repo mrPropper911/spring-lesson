@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface GenreRepositories {
     Genre save(Genre genre);
+
     List<Genre> findByName(String name);
+
     void deleteById(long id);
 }

@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -31,6 +33,15 @@ public class CommentRepositoryJpaImpl implements CommentRepository {
     @Override
     public Optional<Comment> findById(long id) {
         return Optional.ofNullable(entityManager.find(Comment.class, id));
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Comment> findAllCommentsByBookId(long id) {
+        TypedQuery<Comment> typedQuery =
+                entityManager.createQuery("select s from Comment s left join s.book b where b.id = :id", Comment.class);
+        typedQuery.setParameter("id", id);
+        return typedQuery.getResultList();
     }
 
     @Transactional

@@ -16,7 +16,10 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "name_comment",nullable = false, unique = true)
+    @Column(name = "name_comment", nullable = false, unique = true)
     private String comment;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_id")
+    private Book book;
 }

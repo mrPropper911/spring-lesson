@@ -20,7 +20,7 @@ public class GenreRepositoriesJpaImpl implements GenreRepositories {
     @Transactional
     @Override
     public Genre save(Genre genre) {
-        if (genre.getId() == 0){
+        if (genre.getId() == 0) {
             entityManager.persist(genre);
             return genre;
         } else {
@@ -28,7 +28,7 @@ public class GenreRepositoriesJpaImpl implements GenreRepositories {
         }
     }
 
-    public List<Genre> findByName(String name){
+    public List<Genre> findByName(String name) {
         TypedQuery<Genre> query =
                 entityManager.createQuery("select s from Genre s " +
                         "where s.name = :name", Genre.class);

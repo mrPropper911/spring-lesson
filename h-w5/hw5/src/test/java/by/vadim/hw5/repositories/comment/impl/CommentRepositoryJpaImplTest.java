@@ -51,7 +51,10 @@ class CommentRepositoryJpaImplTest {
         genre.setId(0L);
         genre.setName(GENRE_NAME);
 
-        val comment = new Comment(0, COMMENTS_FOR_BOOK);
+        val comment = new Comment();
+        comment.setId(0L);
+        comment.setComment(COMMENTS_FOR_BOOK);
+
         val comments = Collections.singletonList(comment);
         val book = new Book(0, TITLE_BOOK, PRICE_BOOK, author, genre, comments);
 

@@ -65,7 +65,7 @@ public class BookServiceImpl implements BookService {
 
         ioService.out("Enter comment to the book");
         String inComments = ioService.readString();
-        Comment comment = new Comment(0, inComments);
+        Comment comment = new Comment(0, inComments, book);
         List<Comment> comments = Collections.singletonList(comment);
         book.setComments(comments);
 
@@ -85,7 +85,7 @@ public class BookServiceImpl implements BookService {
         ioService.out("Enter title to search");
         String searchTitle = ioService.readString();
         List<Book> listBook = bookRepositoryJpa.findByTitle(searchTitle);
-        if(listBook.size() == 0){
+        if (listBook.size() == 0) {
             ioService.out("Not founded");
         } else {
             for (Book index : listBook) {
@@ -95,7 +95,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public void updateTitleBookById(){
+    public void updateTitleBookById() {
         ioService.out("Enter id to update book");
         long idDelete = Long.parseLong(ioService.readString());
         ioService.out("Enter new title to update");

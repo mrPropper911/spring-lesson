@@ -22,8 +22,8 @@ public class AuthorServiceImpl implements AuthorService {
         String authorNameIn = ioService.readString();
 
         List<Author> listAuthor = authorRepositories.findAll();
-        for (Author index: listAuthor){
-            if(index.getName().equals(authorNameIn)){
+        for (Author index : listAuthor) {
+            if (index.getName().equals(authorNameIn)) {
                 ioService.out("This author exists");
                 return;
             }
@@ -36,15 +36,13 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public void showAllAuthor() {
         List<Author> listAuthor = authorRepositories.findAll();
-        for (Author index: listAuthor){
+        for (Author index : listAuthor) {
             ioService.out(messageAuthor(index));
         }
     }
 
-    private String messageAuthor(Author author){
+    private String messageAuthor(Author author) {
         String outStrAuthor = "";
         return outStrAuthor + " " + author.getId() + " " + author.getName();
     }
-
-
 }

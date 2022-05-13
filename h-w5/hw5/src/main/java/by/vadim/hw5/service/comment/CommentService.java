@@ -4,4 +4,6 @@ public interface CommentService {
     void showCommentById();
 
     void addNewCommentToBook();
+
+    void showAllCommentsByBook();
 }
