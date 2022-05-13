@@ -1,7 +1,9 @@
 package by.vadim.hw4;
 
+import org.h2.tools.Console;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
@@ -18,10 +20,10 @@ public class Main {
     }
 
     public static void main(String[] args) throws SQLException {
-        SpringApplication.run(Main.class, args);
+//        SpringApplication.run(Main.class, args);
 
-//        ApplicationContext context = SpringApplication.run(Main.class);
-//        Console.main(args);
+        ApplicationContext context = SpringApplication.run(Main.class);
+        Console.main(args);
     }
 
 
