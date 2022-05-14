@@ -1,4 +1,6 @@
 package by.vadim.hw6.repositories;
 
-public interface GenreRepositories {
-}
+import by.vadim.hw6.models.Genre;
+import org.springframework.data.repository.CrudRepository;
+
+public interface GenreRepositories extends CrudRepository<Genre, Long> {}
