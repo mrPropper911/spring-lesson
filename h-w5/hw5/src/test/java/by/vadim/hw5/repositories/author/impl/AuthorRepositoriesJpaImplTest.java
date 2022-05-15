@@ -13,8 +13,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
-@DisplayName("Repository check for work with AUTHORS ")
 @DataJpaTest
 @Import(AuthorRepositoriesJpaImpl.class)
 class AuthorRepositoriesJpaImplTest {

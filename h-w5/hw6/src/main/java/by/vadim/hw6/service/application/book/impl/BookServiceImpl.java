@@ -14,6 +14,7 @@ import by.vadim.hw6.service.application.book.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.List;
@@ -105,7 +106,7 @@ public class BookServiceImpl implements BookService {
         }
     }
 
-
+    @Transactional
     @Override
     public void updateTitleBookById() {
         ioService.out("Enter id to update book");
