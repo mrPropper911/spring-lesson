@@ -19,7 +19,7 @@ public class Comment {
     @Column(name = "name_comment", nullable = false, unique = true)
     private String comment;
 
-    @OneToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.LAZY)
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")
     private Book book;
 }

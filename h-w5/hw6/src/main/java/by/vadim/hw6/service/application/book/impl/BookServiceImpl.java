@@ -6,7 +6,6 @@ import by.vadim.hw6.models.Comment;
 import by.vadim.hw6.models.Genre;
 import by.vadim.hw6.repositories.AuthorRepositories;
 import by.vadim.hw6.repositories.BookRepositories;
-
 import by.vadim.hw6.repositories.BookRepositoriesJpa;
 import by.vadim.hw6.repositories.GenreRepositories;
 import by.vadim.hw6.service.api.IOService;
@@ -18,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -45,7 +43,7 @@ public class BookServiceImpl implements BookService {
 
         ioService.out("Enter name author of book");
         String inName = ioService.readString();
-        if(inName.isEmpty()){
+        if (inName.isEmpty()) {
             ioService.out("Name is empty");
             return;
         }

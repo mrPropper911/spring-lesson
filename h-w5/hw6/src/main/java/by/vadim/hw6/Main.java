@@ -1,10 +1,9 @@
 package by.vadim.hw6;
 
+import org.h2.tools.Console;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
-import org.h2.tools.Console;
 
 import java.sql.SQLException;
 
@@ -16,7 +15,5 @@ public class Main {
 
         ApplicationContext context = SpringApplication.run(Main.class);
         Console.main(args);
-
     }
-
 }

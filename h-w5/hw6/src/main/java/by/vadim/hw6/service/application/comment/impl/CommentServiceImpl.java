@@ -37,13 +37,12 @@ public class CommentServiceImpl implements CommentService {
             ioService.out("This book not exists");
             return;
         }
+
         ioService.out("Enter comment to insert");
         String commentToInsert = ioService.readString();
-
         Comment comment = new Comment();
         comment.setComment(commentToInsert);
         comment.setBook(bookSearch);
-
         commentRepositories.save(comment);
     }
 

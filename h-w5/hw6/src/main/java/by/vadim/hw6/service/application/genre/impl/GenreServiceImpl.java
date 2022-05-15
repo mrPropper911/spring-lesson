@@ -1,6 +1,5 @@
 package by.vadim.hw6.service.application.genre.impl;
 
-import by.vadim.hw6.models.Author;
 import by.vadim.hw6.models.Genre;
 import by.vadim.hw6.repositories.GenreRepositories;
 import by.vadim.hw6.service.api.IOService;
