@@ -1,6 +1,8 @@
 package by.vadim.hw6.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import by.vadim.hw6.models.Book;
+import org.springframework.data.repository.CrudRepository;
 
-public interface BookRepositories {
+public interface BookRepositories extends CrudRepository<Book, Long> {
+    Book findByTitle(String searchName);
 }
