@@ -1,6 +1,6 @@
-hw-1) Quize with xml.configuration
-hw-2) Quize Java + Annotation-based 
-hw-3) Quize Spring boot + shell + Junit (JdbcOperations, NamedParameterJdbcOperations)
-hw-4) Book Spring JDBC + shell + Junit 
-hw-5) Book ORM (JPA, Hibernate) + shell + H2 + Junit (EntityManager)
-hw-6) Book Spring Data
+h-w1) Quize with xml.configuration (IoC)
+h-w2) Quize Java + Annotation-based
+h-w3) Quize Spring boot + shell + Junit (JdbcOperations, NamedParameterJdbcOperations)
+h-w4) Book Spring JDBC + shell + Junit 
+h-w5) Book ORM (JPA, Hibernate) + shell + H2 + Junit (EntityManager)
+h-w6) Book Spring Data + shell + H2 + JUnit
