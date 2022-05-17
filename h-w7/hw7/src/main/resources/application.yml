@@ -1,0 +1,22 @@
+spring:
+  #main:
+    #allow-circular-references: true
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mongoHW7
+
+mongock:
+  runner-type: "ApplicationRunner" #default
+  #runner-type: "InitializingBean"
+  change-logs-scan-package:
+    - by.vadim.hw7.changelogs
+  mongo-db:
+    write-concern:
+      journal: false
+    read-concern: local
+
+logging:
+  level:
+    root: error
