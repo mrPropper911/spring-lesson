@@ -21,7 +21,7 @@ public class Book {
     private String price;
 
     @DBRef
-    private Author author;
+    private Author authors;
 
     @DBRef
     private Genre genre;
@@ -31,7 +31,7 @@ public class Book {
     public Book(String title, String price, Author author, Genre genre, Comment... listReview) {
         this.title = title;
         this.price = price;
-        this.author = author;
+        this.authors = author;
         this.genre = genre;
         this.listReview = Arrays.asList(listReview);
     }

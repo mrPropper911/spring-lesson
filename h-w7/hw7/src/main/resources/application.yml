@@ -1,6 +1,6 @@
 spring:
-  #main:
-    #allow-circular-references: true
+  main:
+    allow-circular-references: true
   data:
     mongodb:
       host: localhost
@@ -8,8 +8,8 @@ spring:
       database: mongoHW7
 
 mongock:
-  runner-type: "ApplicationRunner" #default
-  #runner-type: "InitializingBean"
+  #runner-type: "ApplicationRunner" #default
+  runner-type: "InitializingBean"
   change-logs-scan-package:
     - by.vadim.hw7.changelogs
   mongo-db:
