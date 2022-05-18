@@ -1,7 +1,6 @@
 package by.vadim.hw7.events;
 
 import by.vadim.hw7.models.Author;
-import by.vadim.hw7.repositories.author.AuthorRepository;
 import by.vadim.hw7.repositories.book.BookRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.val;

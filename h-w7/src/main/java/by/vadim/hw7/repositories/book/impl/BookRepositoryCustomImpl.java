@@ -5,7 +5,6 @@ import by.vadim.hw7.repositories.book.BookRepositoryCustom;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
