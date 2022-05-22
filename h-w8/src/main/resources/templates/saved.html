@@ -1,10 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@400;700&family=Roboto&display=swap"
+          rel="stylesheet">
+    <link href="../static/css/saved.css" th:href="@{/css/saved.css}" rel="stylesheet"/>
 </head>
+
 <body>
-$END$
+<div class="container">
+    <div class="section_header">
+        <form id="edit_form" th:action="@{/edit(id=${book.id})}" th:method="post" action="saved.html">
+            <h2 class="section_title">Books Info:</h2>
+
+            <div class="row_readonly">
+                <label for="id-input">ID:</label>
+                <input class="row_s" id="id-input" type="text" readonly="readonly" th:value="${book.id}" value="1"/>
+            </div>
+
+            <div class="row">
+                <label for="holder-input">Title:</label>
+                <input class="row_s" id="holder-input" name="title" type="text" th:value="${book.title}" value="title"/>
+            </div>
+
+            <div class="row">
+                <label for="price-input">Price:</label>
+                <input class="row_s" id="price-input" name="price" type="text" th:value="${book.price}" value="price"/>
+            </div>
+
+            <div class="row">
+                <label for="author-input">Author:</label>
+                <input class="row_s" id="author-input" name="author.name" type="text" th:value="${book.author.name}" value="author"/>
+            </div>
+
+            <div class="row">
+                <label for="genre-input">Genre:</label>
+                <input class="row_s" id="genre-input" name="genre.name" type="text" th:value="${book.genre.name}" value="genre"/>
+            </div>
+
+            <div class="btn_save_back">
+                <button class="btn_save" type="submit">Save</button>
+                <a class="btn" th:href="@{/(id=${book.id})}" href="list.html">back</a>
+            </div>
+        </form>
+
+        <form class="delete_action" action="#" th:action="@{/deleteBook/{id}(id=${book.id})}" th:method="delete" >
+            <input type="hidden" th:field="${book}"></input>
+            <button class="btn_delete" type="submit" onClick="return confirm('sure?')">Delete</button>
+        </form>
+
+    </div>
+
+</div>
+<!--End container-->
+
+
+
 </body>
+
 </html>
