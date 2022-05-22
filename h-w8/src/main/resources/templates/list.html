@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Good Thymes Virtual Grocery</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@400;700&family=Roboto&display=swap"
+        rel="stylesheet">
+  <link href="../static/css/list.css" th:href="@{/css/list.css}" rel="stylesheet"/>
+</head>
+
+<body>
+
+<div class="container">
+  <h2 class="section_title">List of books:</h2>
+  <div class="section_header">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Change</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr th:each="book : ${books}">
+        <td th:text="${book.id}">1</td>
+        <td th:text="${book.title}">title</td>
+        <td th:text="${book.price}">price</td>
+        <td th:text="${book.author.name}">author</td>
+        <td th:text="${book.genre.name}">genre</td>
+        <td>
+          <a class="btn" th:href="@{/edit(id=${book.id})}" href="saved.html">Edit</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+</body>
+
+</html>

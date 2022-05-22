@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/*container*/
+.container {
+    display: flex;/* How to centr box*/
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../image/intro.png');
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.section_title{
+    font-size: 24px;
+    color: #333;
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
+}
+
+.section_header{
+    max-width: 950px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    border: none;
+    margin-bottom: 20px;
+}
+.table thead th {
+    font-weight: bold;
+    text-align: left;
+    border: 1px solid #131313;
+    padding: 10px 15px;
+    background: #939090;
+    font-size: 14px;
+}
+.table tbody td {
+    text-align: left;
+    border: 1px solid #131313;
+    padding: 10px 15px;
+    background: #d8d8d8;
+    font-size: 14px;
+    vertical-align: top;
+}
+.table thead tr th:first-child, .table tbody tr td:first-child {
+    border-left: 2px solid #131313;
+    border-radius: 2px;
+}
+.table thead tr th:last-child, .table tbody tr td:last-child {
+    border-right: 2px solid #131313;
+    border-radius: 2px;
+}
+.table tbody tr:nth-child(even){
+    background: #f3f3f3;
+}
+
+.btn {
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px 18px;
+
+    border:2px solid #fff;
+
+    text-decoration: none;
+    color:white;
+    font-size: 9px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 3px;
+
+    transition: opacity 0.2s linear, background-color 0.2s linear;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #333333;
+    opacity: 0.89;
+}
