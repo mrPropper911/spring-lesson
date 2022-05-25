@@ -11,7 +11,10 @@ values ('Роман'),
 
 insert into books(`title`, `price`, `author_id`, `genre_id`)
 values ('Дон Кихот', 412, 4, 1),
-       ('Календула', 22, 1, 2);
+       ('Календула', 22, 1, 2),
+       ('Лолита', 122, 2, 3),
+       ('Литография', 12, 3, 3),
+       ('Cваты', 212, 2, 1);
 
 insert into comments (`name_comment`,`book_id`)
 values ('Это шедевр искусства!',1),

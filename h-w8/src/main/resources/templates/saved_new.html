@@ -14,69 +14,51 @@
 
 <div class="container">
     <div class="section_header">
-        <form id="edit_form" action="saved_new.html" >
+        <form id="edit_form" th:method="POST" th:action="@{/save}" th:object="${book}" >
             <h2 class="section_title">Add new book:</h2>
 
             <div class="row">
                 <label for="holder-input">Title:</label>
-                <input class="row_s" id="holder-input" name="title" type="text" th:value="${book.title}"   placeholder="new title of book"/>
+                <input class="row_s" id="holder-input" name="title" type="text" th:field="*{title}"   placeholder="new title of book"/>
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
             </div>
 
             <div class="row">
                 <label for="price-input">Price:</label>
-                <input class="row_s" id="price-input" name="price" type="text"  th:value="${book.price}"  placeholder="new price of book"/>
+                <input class="row_s" id="price-input" name="price" type="text"  th:field="*{price}"  placeholder="new price of book"/>
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
             </div>
-
-<!--            <div class="row">-->
-<!--                <label for="author-input">Author:</label>-->
-<!--                <input class="row_s" id="author-input" name="author.name" type="text" th:value="${book.author.name}" placeholder="author"/>-->
-<!--            </div>-->
-
-<!--            <div class="row">-->
-<!--                <label for="genre-input">Genre:</label>-->
-<!--                <input class="row_s" id="genre-input" name="genre.name" type="text" th:value="${book.genre.name}" placeholder="genre"/>-->
-<!--            </div>-->
-
 
             <div class="select_author">
                 <label >Authors:</label>
-                <select class="form-control" name="select_author" th:field="${authors}"  id="chooseAuthor">
+                <select class="form-control" name="authors" th:field="*{author}"  id="chooseAuthor">
                     <option value="0">select author of book</option>
                     <option th:each="author : ${authors}"
                             th:value="${author.id}"
                             th:text="${author.name}"></option>
                 </select>
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></div>
             </div>
 
             <div class="select_genre">
                 <label>Genre:</label>
-                <select class="form-control" name="select_genre" th:field="${genres}"  id="chooseGenre">
+                <select class="form-control" name="select_genre" th:field="*{genre}"  id="chooseGenre">
                     <option value="0">select author of book</option>
                     <option th:each="genre : ${genres}"
                             th:value="${genre.id}"
                             th:text="${genre.name}"></option>
                 </select>
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></div>
             </div>
-
 
             <div class="btn_save_back">
                 <button class="btn_save" type="submit">Save</button>
-<!--                <a class="btn" th:href="@{/(id=${book.id})}" href="list.html">back</a>-->
+                <a class="btn" th:href="@{/(id=${book.id})}" href="list.html">back</a>
             </div>
 
         </form>
-
-
-
     </div>
-
-
-
 </div>
-
-
-
-
 </body>
 
 </html>

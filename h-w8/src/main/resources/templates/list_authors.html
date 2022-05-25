@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@400;700&family=Roboto&display=swap"
+          rel="stylesheet">
+    <link href="../static/css/list_authors.css" th:href="@{/css/list_authors.css}" rel="stylesheet"/>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2 class="section_title">List of authors:</h2>
+
+    <div class="section_header">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Change</th>
+            </tr>
+            </thead>
+        </table>
+
+        <div class="table-content-class">
+            <table class="table">
+                <tbody>
+                <tr th:each="author : ${authors}">
+                    <td th:text="${author.id}">1</td>
+                    <td th:text="${author.name}">title</td>
+                    <td>
+                        <a class="btn" th:href="@{/authorsedit(id=${author.id})}" href="saved_authors.html">Edit</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <a class="btn_save_new_book" th:href="@{/authorsSave}" href="saved_new_author.html">Add new author</a>
+        <a class="btn_save_new_book" th:href="@{/}" href="list.html">Back</a>
+    </div>
+</div>
+
+</body>
+
+</html>

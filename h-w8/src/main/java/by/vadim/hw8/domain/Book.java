@@ -1,10 +1,16 @@
 package by.vadim.hw8.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,9 +25,12 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull(message = "Title can not be null!!")
+    @NotEmpty(message = "Title can not be empty!!")
     @Column(name = "title", nullable = false, unique = true)
     private String title;
 
+    @Min(value = 1)
     @Column(name = "price", nullable = false, unique = true)
     private double price;
 

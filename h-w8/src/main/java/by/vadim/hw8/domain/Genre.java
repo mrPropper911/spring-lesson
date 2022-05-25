@@ -1,7 +1,6 @@
 package by.vadim.hw8.domain;
 
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.List;

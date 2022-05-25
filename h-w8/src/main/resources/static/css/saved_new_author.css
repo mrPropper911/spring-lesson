@@ -36,9 +36,18 @@ body {
     margin-top: 10px;
 }
 
+.form-control {
+    background: transparent;
+    border: white;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    color: #888888;
+}
+
 .btn_save_back {
     padding-top: 10px;
 }
+
 
 .btn {
     display: inline-block;
@@ -139,9 +148,20 @@ input {
 
 }
 
+/*input:hover{*/
+/*    background: #fcf9f9;*/
+/*}*/
+
 input:focus {
     border: 1px solid #fff;
     border-radius: 1px;
+}
+
+/*alerts*/
+.alert {
+    font-size: 6px;
+    padding-left: 28px;
+    color: #fafafa;
 }
 
 

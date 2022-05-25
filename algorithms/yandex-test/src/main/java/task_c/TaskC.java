@@ -51,13 +51,10 @@ public class TaskC {
                 arrayNew[i] = Math.abs(array[mainPoint] - array[i]);
             }
         }
-
         Arrays.parallelSort(arrayNew);
-
         for (int m = 1; m <= k; m++){
             sumpointsForOut += arrayNew[m];
         }
-
         return sumpointsForOut;
     }
 

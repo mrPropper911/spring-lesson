@@ -4,7 +4,7 @@
 
 <head>
     <title>Good Thymes Virtual Grocery</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@400;700&family=Roboto&display=swap"
           rel="stylesheet">
     <link href="../static/css/saved.css" th:href="@{/css/saved.css}" rel="stylesheet"/>
@@ -31,14 +31,24 @@
                 <input class="row_s" id="price-input" name="price" type="text" th:value="${book.price}" value="price"/>
             </div>
 
-            <div class="row">
-                <label for="author-input">Author:</label>
-                <input class="row_s" id="author-input" name="author.name" type="text" th:value="${book.author.name}" value="author"/>
+            <div class="select_author">
+                <label>Authors:</label>
+                <select class="form-control" name="author.name" th:field="*{book.author.id}" id="chooseAuthor">
+                    <option value="0">select author of book</option>
+                    <option th:each="author : ${authors}"
+                            th:value="${author.id}"
+                            th:text="${author.name}"></option>
+                </select>
             </div>
 
-            <div class="row">
-                <label for="genre-input">Genre:</label>
-                <input class="row_s" id="genre-input" name="genre.name" type="text" th:value="${book.genre.name}" value="genre"/>
+            <div class="select_genre">
+                <label>Genre:</label>
+                <select class="form-control" name="genre.name" th:field="*{book.genre.id}" id="chooseGenre">
+                    <option value="0">select author of book</option>
+                    <option th:each="genre : ${genres}"
+                            th:value="${genre.id}"
+                            th:text="${genre.name}"></option>
+                </select>
             </div>
 
             <div class="btn_save_back">
@@ -47,7 +57,7 @@
             </div>
         </form>
 
-        <form class="delete_action" action="#" th:action="@{/deleteBook/{id}(id=${book.id})}" th:method="delete" >
+        <form class="delete_action" action="#" th:action="@{/deleteBook/{id}(id=${book.id})}" th:method="delete">
             <input type="hidden" th:field="${book}"></input>
             <button class="btn_delete" type="submit" onClick="return confirm('sure?')">Delete</button>
         </form>
@@ -56,8 +66,6 @@
 
 </div>
 <!--End container-->
-
-
 
 </body>
 

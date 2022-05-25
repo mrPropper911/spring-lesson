@@ -10,8 +10,12 @@ import by.vadim.hw8.service.genre.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,7 +33,7 @@ public class BookController {
     }
 
     @GetMapping("/")
-    public String listPage(Model model){
+    public String listPage(Model model) {
         List<BookDto> listBookDto = bookService.getAllBookList().stream()
                 .map(BookDto::toDto)
                 .collect(Collectors.toList());
@@ -38,59 +42,56 @@ public class BookController {
     }
 
     @GetMapping("/edit")
-    public String editPage(@RequestParam("id") long id, Model model){
+    public String editPage(@RequestParam("id") long id, Model model) {
         Book book = bookService.findBookById(id).orElseThrow(NotFoundException::new);
+        List<Author> authorsList = authorService.getAllAuthorList();
+        List<Genre> genreList = genreService.getAllGenreList();
         model.addAttribute("book", BookDto.toDto(book));
+        model.addAttribute("authors", authorsList);
+        model.addAttribute("genres", genreList);
         return "saved";
     }
 
-    //todo update only title and price
     @PostMapping("/edit")
-    public String updateBook(Book book, Model model){
+    public String updateBook(Book book, Model model) {
         Book savedBook = bookService.updateBook(book);
         model.addAttribute(savedBook);
-        return "saved";
+        return "redirect:/";
     }
 
     @PostMapping("/deleteBook/{id}")
-    public String deleteBook(BookDto bookDto){
+    public String deleteBook(BookDto bookDto) {
         long idDelete = bookDto.getId();
         bookService.deleteBookById(idDelete);
         return "redirect:/";
     }
 
     @GetMapping("/save")
-    public String addNewBook(Model model){
-        //todo перенести в сервис
+    public String addNewBook(Model model) {
         Book bookForAddInDb = new Book();
-        Author authorForAddInDb = new Author();
-        Genre genreForAddInDb = new Genre();
         List<Author> authorsList = authorService.getAllAuthorList();
         List<Genre> genreList = genreService.getAllGenreList();
+        model.addAttribute("book", bookForAddInDb);
         model.addAttribute("authors", authorsList);
         model.addAttribute("genres", genreList);
-        model.addAttribute("book" ,bookForAddInDb);
         return "saved_new";
     }
 
     @PostMapping("/save")
-    public String saveNewBookInDb(Book book, Author author, Genre genre, Model model){
+    public String saveNewBookInDb(@Valid Book book, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "saved_new";
+        }
         Book saved = bookService.saveNewBook(book);
-        model.addAttribute(author);
-        model.addAttribute(genre);
-        model.addAttribute(saved);
-        return "saved_new";
+        return "redirect:/";
     }
 
-
-
-
-
-
-
-//    @ExceptionHandler(NotFoundException.class)
-//    public ResponseEntity<String> handleNotFound(NotFoundException ex) {
-//        return ResponseEntity.badRequest().body("Not found");
-//    }
-
+    @GetMapping("/search")
+    public String searchBook(Model model, @RequestParam("search") String searchStr) {
+        List<BookDto> listBookDto = bookService.searchBookByName(searchStr).stream()
+                .map(BookDto::toDto)
+                .collect(Collectors.toList());
+        model.addAttribute("books", listBookDto);
+        return "list";
+    }
 }

@@ -3,52 +3,64 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <title>Good Thymes Virtual Grocery</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@400;700&family=Roboto&display=swap"
-        rel="stylesheet">
-  <link href="../static/css/list.css" th:href="@{/css/list.css}" rel="stylesheet"/>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@400;700&family=Roboto&display=swap"
+          rel="stylesheet">
+    <link href="../static/css/list.css" th:href="@{/css/list.css}" rel="stylesheet"/>
 </head>
 
 <body>
 
 <div class="container">
-  <h2 class="section_title">List of books:</h2>
-  <div class="section_header">
-    <table class="table">
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Price</th>
-        <th>Author</th>
-        <th>Genre</th>
-        <th>Change</th>
-      </tr>
-      </thead>
 
-      <tbody>
-      <tr th:each="book : ${books}">
-        <td th:text="${book.id}">1</td>
-        <td th:text="${book.title}">title</td>
-        <td th:text="${book.price}">price</td>
-        <td th:text="${book.author.name}">author</td>
-        <td th:text="${book.genre.name}">genre</td>
-        <td>
-          <a class="btn" th:href="@{/edit(id=${book.id})}" href="saved.html">Edit</a>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    <a class="btn_save_new_book" th:href="@{/save}" href="saved_new.html">Save new book</a>
-  </div>
+    <h2 class="section_title">List of books:</h2>
 
+    <div class="section_header">
+        <div class="table-content-top">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Change</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
 
+        <div class="table-content-class">
+            <table class="table">
+                <tbody>
+                <tr th:each="book : ${books}">
+                    <td th:text="${book.id}">1</td>
+                    <td th:text="${book.title}">title</td>
+                    <td th:text="${book.price}">price</td>
+                    <td th:text="${book.author.name}">author</td>
+                    <td th:text="${book.genre.name}">genre</td>
+                    <td>
+                        <a class="btn" th:href="@{/edit(id=${book.id})}" href="saved.html">Edit</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
+        <a class="btn_save_new_book" th:href="@{/save}" href="saved_new.html">Add new book</a>
+        <a class="btn_save_new_author" th:href="@{/authors}" href="list_authors.html">Show authors</a>
+
+        <div class="search_title">
+            <form th:action="@{/search}" th:object="${search}" method="get">
+                <input class="section_title_field" id="holder-input" name="search" type="text" placeholder="search"/>
+                <button class="section_title_button" type="submit">Search</button>
+            </form>
+        </div>
+
+    </div>
 </div>
-
-
-
 
 </body>
 

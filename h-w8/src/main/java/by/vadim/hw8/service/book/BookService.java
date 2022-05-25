@@ -10,7 +10,7 @@ public interface BookService {
 
     List<Book> getAllBookList();
 
-    void findBookByName();
+    List<Book> searchBookByName(String searchName);
 
     Optional<Book> findBookById(long id);
 

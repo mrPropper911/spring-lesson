@@ -2,8 +2,8 @@ spring:
   datasource:
     url: jdbc:h2:mem:testdb
     #initialization-mode: always
-#  main:
-#    allow-circular-references: true
+  #  main:
+  #    allow-circular-references: true
 
   jpa:
     generate-ddl: false

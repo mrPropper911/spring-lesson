@@ -31,16 +31,17 @@ public class BookServiceImpl implements BookService {
     public List<Book> getAllBookList() {
         List<Book> bookList =
                 StreamSupport.stream(bookRepositories
-                        .findAll()
-                        .spliterator(),false)
-                        .collect(Collectors.toList()); ;
+                                .findAll()
+                                .spliterator(), false)
+                        .collect(Collectors.toList());
+        ;
         return bookList;
     }
 
     @Transactional
     @Override
-    public void findBookByName() {
-
+    public List<Book> searchBookByName(String searchName) {
+        return bookRepositoriesJpa.findBooksByTitleContainingIgnoreCase(searchName);
     }
 
     @Transactional
@@ -52,10 +53,8 @@ public class BookServiceImpl implements BookService {
     @Transactional
     @Override
     public Book updateBook(Book book) {
-        bookRepositoriesJpa.updateBook(book.getId(),
-                book.getTitle(),
-                book.getPrice());
-
+        bookRepositoriesJpa.updateBook(book.getId(), book.getTitle(), book.getPrice(),
+                book.getAuthor().getId(), book.getGenre().getId());
         return book;
     }
 
