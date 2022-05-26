@@ -56,6 +56,9 @@ public class TaskWithDouble {
         System.out.println("sorting time:");
         System.out.println(System.currentTimeMillis() - time1);
 
+
+
+
         long time12 = System.currentTimeMillis();
         HashMap<Integer, Integer> index = new HashMap<>();
         for (int i = 0; i < array.length; i++) {

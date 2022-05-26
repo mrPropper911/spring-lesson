@@ -6,3 +6,4 @@ h-w5) Book ORM (JPA, Hibernate) + shell + H2 + Junit (EntityManager)
 h-w6) Book Spring Data + shell + H2 + JUnit
 h-w7) Book Spring Data Mongo + shell
 h-w8) Book Spring MVC + Spring data + H2 + Thymelife + Hibernate
+h-w9) Book Spring MVC + Spring JPA + MySQL + React

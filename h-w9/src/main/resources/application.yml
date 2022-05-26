@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/library
+    username: root
+    password: qwer4321
+
+# if need to paste data into DB from data.sql
+  sql:
+    init:
+      mode: always
+      platform: mysql
+
+  jpa:
+    hibernate.ddl-auto: none
+    generate-ddl: false
+
+    show-sql: true
+
+
+
