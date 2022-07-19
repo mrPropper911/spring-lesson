@@ -1,9 +1,6 @@
 package by.vadim.librarysystems.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -23,6 +20,9 @@ public class Author {
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
+    @Column(name = "location", nullable = false, unique = false)
+    private String location;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -33,7 +33,7 @@ public class Author {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, name, location);
     }
 
     @Override

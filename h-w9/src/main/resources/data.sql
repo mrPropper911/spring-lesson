@@ -1,7 +1,7 @@
-insert into authors (name)
-values ('Shakespeare W'),
-       ('Tolstoy L'),
-       ('Dostoevskii D');
+insert into authors (name, location)
+values ('Shakespeare W', 'England'),
+       ('Tolstoy L', 'Russia'),
+       ('Dostoevskii D', 'Berlin');
 
 insert into books (title, author_id)
 values ('Lolita', 1),

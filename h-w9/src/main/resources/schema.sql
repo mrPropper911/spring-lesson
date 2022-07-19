@@ -4,9 +4,9 @@ create table authors
 (
     id   bigint auto_increment,
     name varchar(255) not null unique,
+    location varchar(255) not null,
     primary key (id)
 );
-
 
 create table books
 (
