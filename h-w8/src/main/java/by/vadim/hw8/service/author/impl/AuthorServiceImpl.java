@@ -5,6 +5,7 @@ import by.vadim.hw8.repositories.author.AuthorRepositories;
 import by.vadim.hw8.repositories.author.AuthorRepositoriesJpa;
 import by.vadim.hw8.service.author.AuthorService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
